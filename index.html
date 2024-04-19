@@ -26,12 +26,16 @@
 
     <p>Click the button to open a new window with some specifications.</p>
 
-<button onclick="myFunction()">Try it</button>
+<button id="yourLinkId" onclick="myFunction()">Try it</button>
 
 <script>
-function myFunction() {
-  window.open("https://www.w3schools.com", "_blank", "toolbar=yes,menubar=no,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
+function myFunction(url) {
+  window.open(url, "_blank"); // Open in new window/tab named "_blank"
+  event.preventDefault(); // Prevent default right-click behavior
 }
+
+// Attach the function to the link click event
+document.getElementById("yourLinkId").addEventListener("contextmenu", openCustomWindow.bind(null, "https://www.google.com")); // Replace "https://www.google.com" with your desired URL and "yourLinkId" with the actual ID of your link element
 </script>
 
 </body>
